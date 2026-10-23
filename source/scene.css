@@ -32,12 +32,12 @@ input{color:var(--text_100)}
 #dialog-root .weui_btn_dialog.primary{color:var(--text_link_100)}
 
 /* A/B提货点：辅助字号与文字色一致，灰底沿用开单员样式。 */
-.amount-bottom--pickup{align-items:flex-start}
-.amount-bottom--pickup .amount-delivery{display:block;flex:1;min-width:0}
+.amount-bottom--pickup{display:flow-root}
+.amount-bottom--pickup .amount-delivery{display:inline}
 .pickup-method,.pickup-label{flex:none;white-space:nowrap}
 .pickup-name{min-width:0;overflow-wrap:anywhere;word-break:break-all;white-space:normal;text-overflow:clip}
-.amount-bottom--pickup .pickup-name{display:inline}
-.amount-bottom--pickup .amount-summary{flex:none;max-width:62%;align-self:flex-start}
+.amount-bottom--pickup .pickup-name{display:inline-block;width:max-content;max-width:100%;vertical-align:top}
+.amount-bottom--pickup .amount-summary{float:right;max-width:none;margin-left:12px}
 .pickup-line{display:flex;width:fit-content;max-width:100%;align-items:flex-start;gap:0;margin-top:8px;font-size:12px;line-height:20px;color:var(--text_80)}
 .pickup-line .pickup-name{flex:1}
 
@@ -54,7 +54,7 @@ input{color:var(--text_100)}
 .pickup-badge{background:#f8f9fa;border-radius:100px;padding:0 8px}
 
 /* preprod OrderMainAmount / PaymentType layout1；文字色保持已确认的体系token。 */
-.amount-summary--source{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;margin-left:4px}
+.amount-summary--source{display:flex;flex:none;align-items:center;justify-content:flex-end;flex-wrap:nowrap;white-space:nowrap;margin-left:4px}
 .amount-summary--source>span,.amount-summary--source>strong,.amount-summary--source>small{white-space:nowrap}
 .summary-payment{display:inline-flex;align-items:center;margin-left:4px;font-size:12px;line-height:16px;color:var(--text_80)}
 .summary-payment .wego-iconfont-s{display:inline-block;font-size:16px;width:16px;height:16px;line-height:16px;color:var(--text_80)}
@@ -79,3 +79,9 @@ input{color:var(--text_100)}
 .summary-payment .icon-qian-mian{color:var(--gold_100)}
 .summary-payment .icon-weixinzhifu1{color:var(--green_1_100)}
 .summary-payment>.payment-plus,.compact-payment .summary-payment>.payment-plus{margin:0 1px}
+
+/* P65：C中自提固定与金额同行，右侧名称在左列文本流内自然换行。 */
+body[data-pickup-variant="c"] .amount-bottom--pickup{display:flex;align-items:flex-start;flex-direction:row;flex-wrap:nowrap}
+body[data-pickup-variant="c"] .amount-bottom--pickup .amount-delivery{display:block;flex:1;min-width:0;width:auto;max-width:none}
+body[data-pickup-variant="c"] .amount-bottom--pickup .pickup-name{display:inline;width:auto;max-width:none;vertical-align:baseline}
+body[data-pickup-variant="c"] .amount-bottom--pickup .amount-summary{float:none;order:0;flex:none;max-width:none;align-self:flex-start;margin-left:4px}
