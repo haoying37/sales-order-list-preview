@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>销售单列表 v1.0.0 · 手机预览</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/design-system/colors_and_type.css">
+  <link rel="stylesheet" href="source/preview.css?rev=iphonex-chrome-20261022">
+</head>
+<body data-preview-shell="phone-only">
+  <header class="preview-mode" aria-label="预览方式">
+    <button id="menu-toggle" aria-label="展开演示目录" aria-expanded="false" aria-controls="scenes">目录</button>
+    <strong>手机预览</strong><span>iPhone X · 375 × 812 CSS px</span>
+  </header>
+  <div class="version-badge" id="local-version">v1.0.0 · 公网预览</div>
+  <aside id="scenes" aria-label="销售单列表演示目录">
+    <div class="scene-content">
+      <h1>销售单列表</h1><p class="project-line">生意云 · preprod 还原</p>
+      <nav aria-label="提货点方案">
+        <h2>提货点方案</h2>
+        <button data-preview-pickup="a" aria-pressed="true">A 方案 · 紧跟自提右侧</button>
+        <button data-preview-pickup="b" aria-pressed="false">B 方案 · 底部独立整行</button>
+      </nav>
+      <nav aria-label="卡片视图">
+        <h2>卡片视图</h2>
+        <button data-preview-view="flat" aria-pressed="true">平铺列表</button>
+        <button data-preview-view="compact" aria-pressed="false">折叠列表</button>
+      </nav>
+      <nav aria-label="页面状态">
+        <h2>页面状态</h2>
+        <button data-preview-state="ready" aria-pressed="true">正常订单</button>
+        <button data-preview-state="empty" aria-pressed="false">空列表</button>
+        <button data-preview-state="loading" aria-pressed="false">加载中</button>
+        <button data-preview-state="error" aria-pressed="false">加载失败</button>
+      </nav>
+      <div class="preview-links">
+        <button id="reset">重置演示</button>
+        <a id="standalone-link" href="pages/sales-order-list-a.html" target="_blank" rel="noopener">独立打开页面</a>
+      </div>
+      <p class="local-note">本地演示数据<br>本次仅支持手机端</p>
+    </div>
+  </aside>
+  <main id="canvas" aria-label="手机预览画布">
+    <div id="device-stage">
+      <div id="device-frame">
+        <div id="phone-screen">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="phone-status" aria-label="模拟iPhone X系统状态栏：9点41分，信号、Wi-Fi和电池">
+            <span class="status-time">9:41</span>
+            <span class="status-icons"><img src="assets/preview/status-cellular.svg" alt="信号"><img src="assets/preview/status-wifi.svg" alt="Wi-Fi"><img src="assets/preview/status-battery.svg" alt="电量"></span>
+          </div>
+          <iframe id="preview" title="销售单列表手机预览" src="pages/sales-order-list-a.html?rev=pickup-ab-20261023"></iframe>
+          <div class="phone-home" role="img" aria-label="模拟iPhone X底部手势条"><span></span></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="source/preview.js?rev=pickup-ab-20261023"></script>
+</body>
+</html>

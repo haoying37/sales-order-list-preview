@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>销售单列表 · B方案</title>
+  <link rel="icon" href="data:,">
+  <!-- 基线：wsxc_order/preprod@a3f8a92。正式路由 src/routes/sales_order_list。 -->
+  <link rel="stylesheet" href="../assets/design-system/colors_and_type.css">
+  <link rel="stylesheet" href="../assets/font/weui.css">
+  <link rel="stylesheet" href="../assets/font/tdui.css">
+  <link rel="stylesheet" href="../assets/font/wego-iconfont.css">
+  <link rel="stylesheet" href="../source/scene.css?rev=pickup-actions-20261023">
+</head>
+<body data-pickup-variant="b">
+  <div class="layout-page" data-component="layout-page" id="list-page" data-prototype="本地样例订单，不连接真实服务">
+    <header class="layout-page__top" id="toolbar">
+      <div class="source-navbar" data-source-component="HeaderNavBar"><button data-action="root-back" aria-label="返回"><i class="wego-iconfont-s icon-fanhui" aria-hidden="true"></i></button><h1>销售单</h1><button data-action="settings" aria-label="销售单设置"><img src="../assets/image/order_setting_dot.png" alt=""></button></div>
+      <nav class="source-tabs" role="tablist" aria-label="销售单状态" data-source-component="SwiperNav" id="tabs"></nav>
+      <div class="search-toolbar">
+        <div class="weui_search_bar weui_search_focusing f-vc" data-source-component="SearchFilter">
+          <form class="weui_search_outer" id="search-form" action="">
+            <div class="weui_search_inner f-flex f-vc">
+              <button type="submit" class="search-icon" aria-label="搜索"><i class="weui_icon_search" aria-hidden="true"></i></button>
+              <span id="search-type-label" hidden></span><input id="search-input" class="weui_search_input f-flex-1" type="search" maxlength="60" placeholder="客户/商品/货号/收件人/快递单号/备注" aria-label="搜索销售单" autocomplete="off">
+              <button type="button" id="image-search" data-action="image-search" aria-label="以图搜图"><img src="../assets/image/icon-search.png" alt=""></button>
+              <button type="button" id="clear-search" data-action="clear-search" aria-label="清除搜索" hidden><i class="weui_icon_clear" aria-hidden="true"></i></button>
+            </div>
+          </form>
+        </div>
+        <button type="button" class="source-filter" id="open-filter" data-action="open-filter" aria-label="筛选"><i class="wego-iconfont-s icon-shaixuan" aria-hidden="true"></i></button>
+      </div>
+      <div id="quick-filters" class="quick-filter-bar" data-prototype="快捷标签及数量为本地模拟接口返回"></div>
+    </header>
+    <main class="layout-page__body">
+      <div id="list-scroll" class="layout-scroll" tabindex="-1">
+        <div id="filter-summary" class="weui_cells_title f12" hidden></div>
+        <div id="orders" role="tabpanel" aria-label="销售单列表" aria-live="polite"></div>
+        <div id="list-status"></div>
+      </div>
+    </main>
+    <footer class="layout-page__bottom" id="batch-bar" data-source-component="FlexNavBar" hidden></footer>
+  </div>
+  <div id="filter-layer" class="filter-layer" data-state="closed" hidden>
+    <button class="source-mask" data-action="cancel-filter" aria-label="取消筛选"></button>
+    <aside class="filter-panel" role="dialog" aria-modal="true" aria-label="筛选" data-source-component="FilterFrame">
+      <div class="filter-scroll">
+        <div class="weui_cells_title">时间区间</div>
+        <div class="weui_cells f14">
+          <label class="weui_cell date-row"><span class="weui_cell_bd weui_cell_primary">起始时间</span><input type="date" id="start-date" aria-label="起始时间"></label>
+          <label class="weui_cell date-row"><span class="weui_cell_bd weui_cell_primary">结束时间</span><input type="date" id="end-date" aria-label="结束时间"></label>
+        </div>
+        <div id="extra-filter-groups"></div>
+        <div class="weui_cells_title">来源</div><div id="source-options" class="filter-tags"></div>
+        <div class="weui_cells_title">客户</div><div id="customer-options" class="filter-tags"></div>
+      </div>
+      <div class="filter-actions"><button class="weui_btn weui_btn_default" data-action="reset-filter">重置</button><button class="weui_btn weui_btn_primary" data-action="apply-filter">确定</button></div>
+    </aside>
+  </div>
+  <div id="secondary-scrim" class="secondary-scrim" hidden></div>
+  <section id="secondary" class="secondary" role="region" aria-label="订单预览" data-state="closed" hidden></section>
+  <div id="dialog-root" class="weui_dialog_confirm" hidden data-source-component="Confirm"></div>
+  <div id="sheet-root" class="sheet-root" data-state="closed" hidden data-source-component="ActionSheet"></div>
+  <div id="menu-root" class="menu-layer" hidden data-source-component="Menu"></div>
+  <div id="search-types" class="search-type-layer" hidden data-source-component="SearchFilter.typeList"></div>
+  <div id="toast" class="source-toast" role="status" hidden></div>
+  <script src="../source/scene.js?rev=pickup-actions-20261023"></script>
+</body>
+</html>
