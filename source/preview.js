@@ -5,11 +5,11 @@
   const preview={view:'flat',state:'ready',pickup:requested==='b'?'b':'a'};
   function sync(){
     document.querySelectorAll('[data-preview-pickup]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.previewPickup===preview.pickup)));
-    document.getElementById('standalone-link').href=`pages/sales-order-list-${preview.pickup}.html`;
+    document.getElementById('standalone-link').href=`pages/sales-order-list-${preview.pickup}.html?rev=p60-20261023`;
   document.querySelectorAll('[data-preview-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.previewView===preview.view)));
     document.querySelectorAll('[data-preview-state]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.previewState===preview.state)));
   }
-  function load(){frame.src=`pages/sales-order-list-${preview.pickup}.html?rev=pickup-ab-20261023&view=${preview.view}&state=${preview.state}`;}
+  function load(){frame.src=`pages/sales-order-list-${preview.pickup}.html?rev=p60-20261023&view=${preview.view}&state=${preview.state}`;}
   function fit(){
     const style=getComputedStyle(canvas),width=canvas.clientWidth-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight),height=canvas.clientHeight-parseFloat(style.paddingTop)-parseFloat(style.paddingBottom);
     document.documentElement.style.setProperty('--preview-scale',String(Math.max(.1,Math.min(1,width/403,height/840))));

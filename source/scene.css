@@ -31,14 +31,14 @@ input{color:var(--text_100)}
 #dialog-root .weui_btn_dialog.default{color:var(--text_100)}
 #dialog-root .weui_btn_dialog.primary{color:var(--text_link_100)}
 
-/* A/B提货点：相同辅助字号与文字色，只改变名称位置。 */
+/* A/B提货点：辅助字号与文字色一致，灰底沿用开单员样式。 */
 .amount-bottom--pickup{align-items:flex-start}
-.amount-bottom--pickup .amount-delivery{display:flex;flex:1;min-width:0;gap:6px;align-items:flex-start}
+.amount-bottom--pickup .amount-delivery{display:block;flex:1;min-width:0}
 .pickup-method,.pickup-label{flex:none;white-space:nowrap}
 .pickup-name{min-width:0;overflow-wrap:anywhere;word-break:break-all;white-space:normal;text-overflow:clip}
-.amount-bottom--pickup .pickup-name{flex:1}
+.amount-bottom--pickup .pickup-name{display:inline}
 .amount-bottom--pickup .amount-summary{flex:none;max-width:62%;align-self:flex-start}
-.pickup-line{display:flex;align-items:flex-start;gap:0;margin-top:8px;font-size:12px;line-height:20px;color:var(--text_80)}
+.pickup-line{display:flex;width:fit-content;max-width:100%;align-items:flex-start;gap:0;margin-top:8px;font-size:12px;line-height:20px;color:var(--text_80)}
 .pickup-line .pickup-name{flex:1}
 
 /* 发货方式移动到第二行后，保持辅助文字色。 */
@@ -49,3 +49,33 @@ input{color:var(--text_100)}
 
 /* 待提货平铺按确认顺序固定四个文字入口；核销复用发货highlight。 */
 .order-actions--pickup .order-buttons{gap:8px}.order-actions--pickup .order-button{margin-left:0}
+
+/* 提货点灰底与staff-badge一致；仅包裹提货点内容，不影响折叠列表。 */
+.pickup-badge{background:#f8f9fa;border-radius:100px;padding:0 8px}
+
+/* preprod OrderMainAmount / PaymentType layout1；文字色保持已确认的体系token。 */
+.amount-summary--source{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;margin-left:4px}
+.amount-summary--source>span,.amount-summary--source>strong,.amount-summary--source>small{white-space:nowrap}
+.summary-payment{display:inline-flex;align-items:center;margin-left:4px;font-size:12px;line-height:16px;color:var(--text_80)}
+.summary-payment .wego-iconfont-s{display:inline-block;font-size:16px;width:16px;height:16px;line-height:16px;color:var(--text_80)}
+.summary-payment[data-pay-type="wechat"] .wego-iconfont-s{color:var(--green_1_100)}
+.summary-payment>span{margin-left:2px}.summary-postage{margin-left:4px}
+
+/* 挂起/退款子单：左列付款，右列类型、件数、金额；保留已确认配送/提货点字段。 */
+.summary-kind{margin-right:4px}.amount-child-left{display:flex;flex-direction:column;align-items:flex-start;gap:4px;flex:1;min-width:0}
+.amount-child-left>.amount-delivery{width:100%;min-width:0}.amount-child-left .summary-payment{margin-left:0}
+/* 折叠保持金额→件数→付款，PaymentType placement=left，简单支付仍显示文字+图标。 */
+.compact-payment{margin-top:2px;height:16px}.compact-payment .summary-payment{margin-left:0}
+.compact-payment .summary-payment>span{margin-left:0;margin-right:2px}.compact-refund-method{margin-top:2px;font-size:12px;line-height:17px;color:var(--text_80)}
+
+/* P56/P57：子单元信息与客户IM入口，保留主单已确认布局。 */
+.order-amount--child .amount-top>.summary-payment{margin-left:0}
+.customer-contact{display:flex;align-items:center;justify-content:center;flex:none;width:32px;height:24px;margin-left:8px;border-radius:100px;background:rgba(32,47,100,.03);color:var(--text_80)}
+.customer-contact .wego-iconfont-s{font-size:16px;line-height:16px}
+.customer-contact:active{opacity:.8}
+.customer-name-row .customer-name{min-width:0}
+
+/* P58：源PaymentType的wechatBalance，两种图标分别着色，加号两侧1px。 */
+.summary-payment .icon-qian-mian{color:var(--gold_100)}
+.summary-payment .icon-weixinzhifu1{color:var(--green_1_100)}
+.summary-payment>.payment-plus,.compact-payment .summary-payment>.payment-plus{margin:0 1px}
