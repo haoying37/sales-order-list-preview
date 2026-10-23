@@ -6,7 +6,7 @@
   <title>销售单列表 v1.0.0 · 手机预览</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="assets/design-system/colors_and_type.css">
-  <link rel="stylesheet" href="source/preview.css?rev=iphonex-chrome-20261022">
+  <link rel="stylesheet" href="source/preview.css?rev=pickup-c-default-20261023">
 </head>
 <body data-preview-shell="phone-only">
   <header class="preview-mode" aria-label="预览方式">
@@ -19,9 +19,7 @@
       <h1>销售单列表</h1><p class="project-line">生意云 · preprod 还原</p>
       <nav aria-label="提货点方案">
         <h2>提货点方案</h2>
-        <button data-preview-pickup="a" aria-pressed="true">A 方案 · 紧跟自提右侧</button>
-        <button data-preview-pickup="c" aria-pressed="false">C 方案 · 名称自然换行</button>
-        <button data-preview-pickup="b" aria-pressed="false">B 方案 · 底部独立整行</button>
+        <button data-preview-pickup="c" aria-pressed="true">设计方案</button>
       </nav>
       <nav aria-label="卡片视图">
         <h2>卡片视图</h2>
@@ -37,9 +35,14 @@
       </nav>
       <div class="preview-links">
         <button id="reset">重置演示</button>
-        <a id="standalone-link" href="pages/sales-order-list-a.html" target="_blank" rel="noopener">独立打开页面</a>
+        <a id="standalone-link" href="pages/sales-order-list-c.html" target="_blank" rel="noopener">独立打开页面</a>
       </div>
       <p class="local-note">本地演示数据<br>本次仅支持手机端</p>
+      <nav class="draft-schemes" aria-label="草稿方案" id="draft-schemes">
+        <h2>草稿方案</h2>
+        <button data-preview-pickup="a" aria-pressed="false">A 方案 · 紧跟自提右侧</button>
+        <button data-preview-pickup="b" aria-pressed="false">B 方案 · 底部独立整行</button>
+      </nav>
     </div>
   </aside>
   <main id="canvas" aria-label="手机预览画布">
@@ -51,12 +54,12 @@
             <span class="status-time">9:41</span>
             <span class="status-icons"><img src="assets/preview/status-cellular.svg" alt="信号"><img src="assets/preview/status-wifi.svg" alt="Wi-Fi"><img src="assets/preview/status-battery.svg" alt="电量"></span>
           </div>
-          <iframe id="preview" title="销售单列表手机预览" src="pages/sales-order-list-a.html?rev=pickup-natural-wrap-20261023"></iframe>
+          <iframe id="preview" title="销售单列表手机预览" src="pages/sales-order-list-c.html?rev=pickup-c-default-20261023"></iframe>
           <div class="phone-home" role="img" aria-label="模拟iPhone X底部手势条"><span></span></div>
         </div>
       </div>
     </div>
   </main>
-  <script src="source/preview.js?rev=pickup-natural-wrap-20261023"></script>
+  <script src="source/preview.js?rev=pickup-c-default-20261023"></script>
 </body>
 </html>
